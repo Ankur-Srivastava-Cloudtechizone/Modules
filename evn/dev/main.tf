@@ -50,15 +50,15 @@ module "windows_vm_module" {
 }
 
 module "lb_module" {
+  depends_on = [module.linux_vm_module, module.windows_vm_module]
   source     = "../../main-code/Load-Balancer"
   lb_map = var.lb_map
-  # depends_on = [module.linux_vm_module]
+  }
+
+
+
+module "database_module" {
+  source     = "../../main-code/database"
+  db_map     = var.db_map
+  depends_on = [module.resource_group_module]
 }
-
-
-
-# module "database_module" {
-#   source     = "../../main-code/database"
-#   db_map     = var.db_map
-#   depends_on = [module.resource_group_module]
-# }
