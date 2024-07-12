@@ -10,12 +10,12 @@ module "keyvault_module" {
   
 }
 
-# module "virtual_network_module" {
-#   depends_on = [module.resource_group_module]
-#   source     = "../../main-code/virtual-network"
-#   vnet_map   = var.vnet_map
+module "virtual_network_module" {
+  depends_on = [module.resource_group_module]
+  source     = "../../main-code/virtual-network"
+  vnet_map   = var.vnet_map
   
-# }
+}
 
 # module "peering_module" {
 #   depends_on = [module.virtual_network_module]
