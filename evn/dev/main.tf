@@ -30,12 +30,12 @@ module "subnet_module" {
   subnet_map = var.subnet_map
   }
 
-# module "bation_module" {
-#   depends_on  = [module.virtual_network_module]
-#   source      = "../../main-code/Bastion"
-#   bastion_map = var.bastion_map
+module "bation_module" {
+  depends_on  = [module.virtual_network_module]
+  source      = "../../main-code/Bastion"
+  bastion_map = var.bastion_map
   
-# }
+}
 
 # module "linux_vm_module" {
 #   source       = "../../main-code/Linux-Virtual-Machine"
