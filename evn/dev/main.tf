@@ -24,11 +24,11 @@ module "peering_module" {
   
 }
 
-# module "subnet_module" {
-#   depends_on = [module.virtual_network_module]
-#   source     = "../../main-code/subnet"
-#   subnet_map = var.subnet_map
-#   }
+module "subnet_module" {
+  depends_on = [module.virtual_network_module]
+  source     = "../../main-code/subnet"
+  subnet_map = var.subnet_map
+  }
 
 # module "bation_module" {
 #   depends_on  = [module.virtual_network_module]
