@@ -7,21 +7,18 @@ module "keyvault_module" {
   depends_on   = [module.resource_group_module]
   source       = "../../main-code/keyvault"
   keyvault_map = var.keyvault_map
-  
 }
 
 module "virtual_network_module" {
   depends_on = [module.resource_group_module]
   source     = "../../main-code/virtual-network"
   vnet_map   = var.vnet_map
-  
 }
 
 module "peering_module" {
   depends_on = [module.virtual_network_module]
   source     = "../../main-code/peering"
   peering_map   = var.peering_map
-  
 }
 
 module "subnet_module" {
