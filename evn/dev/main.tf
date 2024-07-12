@@ -37,23 +37,23 @@ module "bation_module" {
   
 }
 
-# module "linux_vm_module" {
-#   source       = "../../main-code/Linux-Virtual-Machine"
-#   Linux_vm_map = var.Linux_vm_map
-#   depends_on   = [module.subnet_module]
-# }
+module "linux_vm_module" {
+  source       = "../../main-code/Linux-Virtual-Machine"
+  Linux_vm_map = var.Linux_vm_map
+  depends_on   = [module.subnet_module]
+}
 
-# module "windows_vm_module" {
-#   source     = "../../main-code/Windows-Virtual-Machine"
-#   win_vm_map = var.win_vm_map
-#   depends_on = [module.subnet_module]
-# }
+module "windows_vm_module" {
+  source     = "../../main-code/Windows-Virtual-Machine"
+  win_vm_map = var.win_vm_map
+  depends_on = [module.subnet_module]
+}
 
-# module "lb_module" {
-#   source     = "../../main-code/Load-Balancer"
-#   lb_map = var.lb_map
-#   # depends_on = [module.linux_vm_module]
-# }
+module "lb_module" {
+  source     = "../../main-code/Load-Balancer"
+  lb_map = var.lb_map
+  # depends_on = [module.linux_vm_module]
+}
 
 
 
