@@ -3,12 +3,12 @@ module "resource_group_module" {
   rg_map = var.rg_map
 }
 
-# module "keyvault_module" {
-#   depends_on   = [module.resource_group_module]
-#   source       = "../../main-code/keyvault"
-#   keyvault_map = var.keyvault_map
+module "keyvault_module" {
+  depends_on   = [module.resource_group_module]
+  source       = "../../main-code/keyvault"
+  keyvault_map = var.keyvault_map
   
-# }
+}
 
 # module "virtual_network_module" {
 #   depends_on = [module.resource_group_module]
