@@ -4,33 +4,37 @@ module "resource_group_module" {
 }
 
 module "keyvault_module" {
+  depends_on   = [module.resource_group_module]
   source       = "../../main-code/keyvault"
   keyvault_map = var.keyvault_map
-  depends_on   = [module.resource_group_module]
+  
 }
 
 module "virtual_network_module" {
+  depends_on = [module.resource_group_module]
   source     = "../../main-code/virtual-network"
   vnet_map   = var.vnet_map
-  depends_on = [module.resource_group_module]
+  
 }
 
 module "peering_module" {
+  depends_on = [module.virtual_network_module]
   source     = "../../main-code/peering"
   peering_map   = var.peering_map
-  depends_on = [module.virtual_network_module]
+  
 }
 
 module "subnet_module" {
+  depends_on = [module.virtual_network_module]
   source     = "../../main-code/subnet"
   subnet_map = var.subnet_map
-  depends_on = [module.virtual_network_module]
-}
+  }
 
 module "bation_module" {
+  depends_on  = [module.virtual_network_module]
   source      = "../../main-code/Bastion"
   bastion_map = var.bastion_map
-  depends_on  = [module.virtual_network_module]
+  
 }
 
 module "linux_vm_module" {
