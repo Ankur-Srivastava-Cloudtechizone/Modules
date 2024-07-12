@@ -30,10 +30,8 @@ resource "azurerm_key_vault" "example" {
     key_permissions = []
 
 
-    secret_permissions = [
-      "Get" "List" "Set" "Delete" "Recover" "Backup" "Restore" "Purge"
-    ]
+    secret_permissions = []
 
-    storage_permissions = ["Get" "List" "Set" "Delete" "Recover" "Backup" "Restore" "Purge"]
+    storage_permissions = []
   }
 }
