@@ -17,12 +17,12 @@ module "virtual_network_module" {
   
 }
 
-# module "peering_module" {
-#   depends_on = [module.virtual_network_module]
-#   source     = "../../main-code/peering"
-#   peering_map   = var.peering_map
+module "peering_module" {
+  depends_on = [module.virtual_network_module]
+  source     = "../../main-code/peering"
+  peering_map   = var.peering_map
   
-# }
+}
 
 # module "subnet_module" {
 #   depends_on = [module.virtual_network_module]
