@@ -10,7 +10,7 @@ rg_map = {
   }
   rg3 = {
     name     = "rg-database-prod-ci-01"
-    location = "eastus"
+    location = "centralindia"
   }
 }
 
@@ -52,7 +52,7 @@ vnet_map = {
   }
   vnet3 = {
     name          = "database-vnet"
-    location      = "eastus"
+    location      = "centralindia"
     rg_name       = "rg-database-prod-ci-01"
     address_space = ["172.169.0.0/16"]
   }
@@ -105,7 +105,7 @@ db_map = {
   db1 = {
     sqlserver_name = "sqlservernetweb"
     rg_name        = "rg-database-prod-ci-01"
-    location       = "eastus"
+    location       = "centralindia"
     sql_db_name    = "sql-db"
   }
 
